@@ -11,6 +11,7 @@ import java.util.Map;
 
 public class BTView extends Pane {
     private BST<Integer> tree = new BST<>();
+    private Text text;
     // Keeps all instances of displayed tree nodes
     private Map<Integer, NodeViewHolder<Integer>> treeViewCash = new HashMap<>(8);
     private Thread animationThread;
@@ -18,11 +19,16 @@ public class BTView extends Pane {
 
     public BTView(BST<Integer> tree) {
         this.tree = tree;
-        setStatus("Tree is empty");
+        recreateStatus("Tree is empty");
     }
 
-    public void setStatus(String msg) {
-        getChildren().add(new Text(20, 20, msg));
+    public void recreateStatus(String msg) {
+        text = new Text(20, 20, msg);
+        getChildren().add(text);
+    }
+
+    public void setStatus(String error) {
+        text.setText(error);
     }
 
     public void displayTree() {

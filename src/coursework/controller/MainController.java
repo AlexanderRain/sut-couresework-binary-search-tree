@@ -3,6 +3,8 @@ package coursework.controller;
 import coursework.model.BST;
 import coursework.view.BTView;
 
+import java.util.List;
+
 public class MainController {
 
     private BTView view;
@@ -17,11 +19,11 @@ public class MainController {
         view.stopAnimation();
         if (tree.search(key)) { // key is in the tree already
             view.displayTree();
-            view.setStatus(key + " is already in the tree");
+            view.recreateStatus(key + " is already in the tree");
         } else {
             tree.insert(key); // Insert a new key
             view.displayTree();
-            view.setStatus(key + " is inserted in the tree");
+            view.recreateStatus(key + " is inserted in the tree");
         }
     }
 
@@ -29,26 +31,36 @@ public class MainController {
         view.stopAnimation();
         if (!tree.search(key)) { // key is not in the tree
             view.displayTree();
-            view.setStatus(key + " is not in the tree");
+            view.recreateStatus(key + " is not in the tree");
         } else {
             tree.delete(key); // Delete a key
             view.displayTree();
-            view.setStatus(key + " is deleted from the tree");
+            view.recreateStatus(key + " is deleted from the tree");
         }
     }
 
     public void OnInorder() {
         view.stopAnimation();
-        view.animateTraversal(tree.inorder());
+        List<Integer> traversal = tree.inorder();
+        view.setStatus("Inorder traversal: " + traversal.toString());
+        view.animateTraversal(traversal);
     }
 
     public void OnPreorder() {
         view.stopAnimation();
-        view.animateTraversal(tree.preorder());
+        List<Integer> traversal = tree.preorder();
+        view.setStatus("Preorder traversal: " + traversal.toString());
+        view.animateTraversal(traversal);
     }
 
-    public void OnPostrder() {
+    public void OnPostorder() {
         view.stopAnimation();
-        view.animateTraversal(tree.postorder());
+        List<Integer> traversal = tree.postorder();
+        view.setStatus("Postorder traversal: " + traversal.toString());
+        view.animateTraversal(traversal);
+    }
+
+    public void InvalidInput(String msg) {
+        view.setStatus(msg);
     }
 }

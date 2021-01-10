@@ -21,7 +21,7 @@ public class NodeViewHolder<E> {
         // set default state to tree node
         defaultState();
 
-        nodeText = new Text(x - 4, y + 4, nodeElement.toString());
+        nodeText = new Text(x - 2 - (nodeElement.toString().length()*2), y + 4, nodeElement.toString());
         root.addAll(treeNode, nodeText);
     }
 

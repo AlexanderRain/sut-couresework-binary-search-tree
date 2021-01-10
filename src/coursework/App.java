@@ -43,17 +43,25 @@ public class App extends Application {
         pane.setBottom(hBox);
 
         insert.setOnAction(e -> {
-            int key = Integer.parseInt(tfKey.getText());
-            controller.OnInsert(key);
+            try {
+                int key = Integer.parseInt(tfKey.getText());
+                controller.OnInsert(key);
+            } catch (NumberFormatException exception) {
+                controller.InvalidInput("Invalid input " + exception);
+            }
         });
 
         delete.setOnAction(e -> {
-            int key = Integer.parseInt(tfKey.getText());
-            controller.OnDelete(key);
+            try {
+                int key = Integer.parseInt(tfKey.getText());
+                controller.OnDelete(key);
+            } catch (NumberFormatException exception) {
+                controller.InvalidInput("Invalid input " + exception);
+            }
         });
         inorder.setOnAction(e -> controller.OnInorder());
         preorder.setOnAction(e -> controller.OnPreorder());
-        postorder.setOnAction(e -> controller.OnPostrder());
+        postorder.setOnAction(e -> controller.OnPostorder());
 
         // Create a scene and place the pane in the stage
         Scene scene = new Scene(pane, 800, 600);
