@@ -3,6 +3,7 @@ package coursework.model;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+/** Vilkhovyk OO*/
 
 public class BST<E extends Comparable<E>> extends AbstractTree<E> {
     private TreeNode<E> root;

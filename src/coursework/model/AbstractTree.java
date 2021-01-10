@@ -1,6 +1,7 @@
 package coursework.model;
 
 import java.util.List;
+/** Vilkhovyk OO*/
 
 public abstract class AbstractTree<E extends Comparable<E>> implements Tree<E> {
 

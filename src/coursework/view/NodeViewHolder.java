@@ -5,6 +5,7 @@ import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
+/** Vilkhovyk OO*/
 
 public class NodeViewHolder<E> {
 

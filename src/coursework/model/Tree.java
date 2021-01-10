@@ -1,6 +1,7 @@
 package coursework.model;
 
 import java.util.List;
+/** Vilkhovyk OO*/
 
 public interface Tree<E extends Comparable<E>> extends Iterable<E> {
   /** Return true if the element is in the tree */

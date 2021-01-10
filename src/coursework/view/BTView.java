@@ -8,6 +8,7 @@ import javafx.scene.text.Text;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+/** Vilkhovyk OO*/
 
 public class BTView extends Pane {
     private BST<Integer> tree = new BST<>();
